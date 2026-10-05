@@ -1,9 +1,12 @@
 import { heroSlides } from '@/data/site';
 export function Hero() {
   const slide = heroSlides[0];
-  return <section className="hero" aria-label="Eshu Clothing introduction"><img src={slide.image} alt={slide.alt} />
-    <div className="hero-copy"><h1 className="hero-title">{slide.lines.map((line) => <span key={line}>{line}</span>)}</h1><div className="hero-est">{slide.established.toUpperCase()}</div></div>
-    <p className="hero-note">{slide.note.map((line) => <span key={line}>{line}</span>)}</p><div className="hero-progress"><span>01 / 04</span><i aria-hidden="true" /></div>
-    <div className="hero-controls" aria-label="Hero slides"><button type="button" aria-label="Previous slide">←</button><button type="button" aria-label="Next slide">→</button></div>
+  return <section className="hero" aria-label="Eshu Clothing introduction">
+    <div className="hero-logo-stack" aria-label="Eshu">
+      <img className="hero-logo hero-logo-black" src="/images/eshu-assets/05%20BRAND-LOGOS/eshu-logo-black.png" alt="" aria-hidden="true" />
+      <img className="hero-logo hero-logo-green" src="/images/eshu-assets/05%20BRAND-LOGOS/eshu-logo-green.png" alt="" aria-hidden="true" />
+      <img className="hero-logo hero-logo-red" src="/images/eshu-assets/05%20BRAND-LOGOS/eshu-logo-red.png" alt="" aria-hidden="true" />
+    </div>
+    <a className="hero-cta" href={slide.cta.href}>{slide.cta.label} <span>→</span></a>
   </section>;
 }

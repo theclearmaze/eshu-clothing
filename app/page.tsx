@@ -1,8 +1,7 @@
-import { ArchiveFeature } from '@/components/archive-feature';
+import { AboutEshu } from '@/components/about-eshu';
 import { Hero } from '@/components/hero';
-import { ProductGrid } from '@/components/product-grid';
-import { StoryFeature } from '@/components/story-feature';
+import { VisualFeed } from '@/components/visual-feed';
 
 export default function Home() {
-  return <main><Hero /><ProductGrid /><ArchiveFeature /><StoryFeature /></main>;
+  return <main><Hero /><VisualFeed /><AboutEshu /></main>;
 }

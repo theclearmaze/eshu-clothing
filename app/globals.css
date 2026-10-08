@@ -56,8 +56,11 @@ button, input { font: inherit; }
 .editorial-placeholder strong { font-family: var(--serif); font-size: clamp(.82rem, 1.2vw, 1rem); font-style: italic; font-weight: 400; overflow-wrap: anywhere; }
 .feed-reveal { position: absolute; left: .85rem; right: .85rem; bottom: .85rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .75rem .9rem; background: rgba(242, 238, 229, .94); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; opacity: 0; transform: translateY(7px); transition: opacity .22s ease, transform .22s ease; pointer-events: none; }
 .feed-reveal small { flex: 0 0 auto; font-size: .63rem; letter-spacing: .14em; }
-.feed-item:hover .feed-reveal, .feed-item:focus-visible .feed-reveal { opacity: 1; transform: translateY(0); }
-.feed-item:hover .feed-image > img { transform: scale(1.012); }
+.feed-item:focus-visible .feed-reveal { opacity: 1; transform: translateY(0); }
+@media (hover: hover) and (pointer: fine) {
+  .feed-item:hover .feed-reveal { opacity: 1; transform: translateY(0); }
+  .feed-item:hover .feed-image > img { transform: scale(1.012); }
+}
 .mobile-feed-caption { display: none; pointer-events: none; }
 
 .about-eshu { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr); min-height: 650px; border-top: 1px solid var(--line); }
@@ -91,7 +94,9 @@ button, input { font: inherit; }
 .catalog-tile { display: block; min-width: 0; }
 .catalog-media { overflow: hidden; background: #e4e0d7; }
 .catalog-media img { width: 100%; height: auto; transition: transform .45s ease; }
-.catalog-tile:hover .catalog-media img { transform: scale(1.012); }
+@media (hover: hover) and (pointer: fine) {
+  .catalog-tile:hover .catalog-media img { transform: scale(1.012); }
+}
 .catalog-meta { display: flex; justify-content: space-between; gap: 1rem; padding-top: .8rem; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
 .catalog-meta strong { font-weight: 400; }
 .catalog-meta span { flex: 0 0 auto; color: var(--muted); }
@@ -149,8 +154,9 @@ button, input { font: inherit; }
   .mobile-menu { display: block; position: relative; }
   .mobile-menu summary { list-style: none; cursor: pointer; font-size: .68rem; letter-spacing: .14em; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
-  .mobile-drawer { position: absolute; top: 42px; left: -1.15rem; width: 100vw; display: grid; gap: 1.1rem; padding: 2rem 1.2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); font-family: var(--serif); font-size: 1.8rem; }
-  .hero { height: clamp(560px, 70vh, 720px); margin: 0 .65rem; }
+  .mobile-drawer { position: absolute; top: 42px; left: -1.15rem; width: 100vw; display: grid; gap: .5rem; padding: 1.5rem 1.2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; color: #000; font-family: var(--sans); font-size: .85rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; }
+  .mobile-drawer a { display: flex; align-items: center; min-height: 44px; padding: .65rem 0; }
+  .hero { height: clamp(220px, 42vw, 320px); margin: 0 .65rem; }
   .hero-logo-stack { width: min(80vw, 760px); }
   .visual-feed { width: calc(100% - 1rem); }
   .feed-desktop-columns, .feed-column { gap: .625rem; }
@@ -175,8 +181,8 @@ button, input { font: inherit; }
 }
 
 @media (max-width: 560px) {
-  .hero { height: calc(84vh - 64px); min-height: 510px; }
-  .hero-logo-stack { top: 46%; width: 88vw; }
+  .hero { height: clamp(220px, 55vw, 260px); }
+  .hero-logo-stack { top: 49%; width: 88vw; }
   .hero-logo-green { transform: translate(-2px, -2px); }
   .hero-logo-red { transform: translate(2px, 2px); }
   @media (hover: hover) {
@@ -205,6 +211,12 @@ button, input { font: inherit; }
   .catalog-grid, .archive-catalog { grid-template-columns: 1fr; gap: 3rem; }
   .story-page-copy { padding: 4.5rem 1.5rem 5.5rem; }
   .contact-page { min-height: 68vh; padding: 4.5rem 1.25rem; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .feed-item, .catalog-tile, .mobile-drawer a { touch-action: manipulation; }
+  .feed-reveal { display: none; }
+  .feed-image img, .catalog-media img { pointer-events: none; transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }

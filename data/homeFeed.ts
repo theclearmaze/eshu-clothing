@@ -71,7 +71,12 @@ function editorialEntry(id: string, folder: '04 EDITORIAL-LIFESTYLE' | '08 COMMU
 const communityGrace = editorialEntry('community-grace-jones', '08 COMMUNITY', 'community-grace-jones-tee-01.JPEG', 'Eshu community member holding a Grace Jones tee', 'Eshu Community');
 const communityGolliwog = editorialEntry('community-golliwog', '08 COMMUNITY', 'community-golliwog-tee-01.JPG', 'Eshu community member holding a graphic tee', 'Eshu Community');
 const communitySkinfolk = editorialEntry('community-skinfolk', '08 COMMUNITY', 'community-skinfolk-tee-01.JPG', 'Eshu community member holding a Skinfolk tee', 'Eshu Community');
-const editorialModel = editorialEntry('editorial-patch-denim-model', '04 EDITORIAL-LIFESTYLE', 'portrait-patch-denim-lifestyle-model-01.jpg.JPG', 'Model wearing Eshu portrait patch denim', 'Portrait Patch Denim');
+// Keep the existing editorial URL without the unavailable image. This record
+// also preserves the surrounding feed items' established column assignments.
+const editorialModel: FeedItem = {
+  id: 'editorial-patch-denim-model', type: 'editorial', slug: 'editorial-patch-denim-model',
+  alt: 'Portrait Patch Denim', caption: 'Portrait Patch Denim', href: '/editorial/editorial-patch-denim-model', gallery: [],
+};
 const editorialSkatepark = editorialEntry('editorial-patch-denim-skatepark', '04 EDITORIAL-LIFESTYLE', 'portrait-patch-denim-lifestyle-skatepark-02.jpg.JPG', 'Eshu portrait patch denim at an Atlanta skatepark', 'Atlanta, Georgia');
 const editorialMarket = editorialEntry('editorial-vintage-market', '04 EDITORIAL-LIFESTYLE', 'editorial-vintage-market-display-01.JPG', 'Vintage market display in Atlanta', 'Found Objects');
 
